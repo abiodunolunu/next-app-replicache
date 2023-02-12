@@ -18,6 +18,13 @@
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "4.9.5"
+    "replicache": "^12.0.2",
+    "replicache-nextjs": "^0.5.1",
+    "replicache-react": "^2.10.0",
+    "typescript": "4.9.5",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.0"
   }
 }
