@@ -15,8 +15,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     return {
       props: {},
     };
-
-  await createSpace(SPACE_ID);
+  else await createSpace(SPACE_ID);
   return {
     props: {},
   };
@@ -57,6 +56,8 @@ export default function Home() {
   };
 
   const createMultiple = async () => {
+    const tasks: ITask[] = [];
+
     for (let i = 1; i <= 1000; i++) {
       const newTask: ITask = {
         id: uuid(),
@@ -64,8 +65,12 @@ export default function Home() {
         completed: false,
       };
 
-      await rep?.mutate.createTask(newTask);
+      tasks.push(newTask);
     }
+
+    const requests = tasks.map((task) => rep?.mutate.createTask(task));
+
+    await Promise.all(requests);
   };
 
   return (
